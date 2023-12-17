@@ -2,7 +2,9 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Archive } from 'src/app/_models/archive.model';
+import { Theme } from 'src/app/_models/theme.model';
 import { ArchiveService } from 'src/app/_services/archive.service';
+import { ThemeService } from 'src/app/_services/theme.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,18 +17,57 @@ export class AdminArchiveComponent implements OnInit{
   title!: 'Archive';
   titre: string = 'Archive';
   listArchive: any[] = [];
+  theme: Theme[] = [];
+  selectedThemeId: number | undefined;
   // listArchive: Archive[] = [];
+
+  //Propriete pour la recherche
+  searchText: string = '';
+  filteredThemes: Theme[] = [];
+  selectedTheme: Theme | undefined;
+
+
 
   @ViewChild("file",{static: false}) file!: ElementRef;
 
   constructor(
     private archiveService: ArchiveService,
+    private themeService: ThemeService,
     private toastr: ToastrService
   ){}
 
   ngOnInit() {
     this.fetchAllArchive();
+    this.fetchAllTheme();
+    this.filteredThemes = this.theme;
   }
+
+  updateFilteredItems(): void {
+    // Filtrer les thèmes
+    this.filteredThemes = this.theme.filter(them =>
+      them.titre.toLowerCase().includes(this.searchText.toLowerCase())
+    );
+  }
+
+  updateFilteredThemes(): void{
+    this.filteredThemes = this.theme.filter(them =>
+      them.titre.toLowerCase().includes(this.searchText.toLowerCase())
+    );
+  }
+
+  fetchAllTheme() {
+    this.themeService.showAllTheme().subscribe({
+      next: (response) => {
+        console.log(response);
+        this.theme = response.themes;
+        console.log(this.theme);
+      },
+      error(err) {
+          console.log('Erreur du chargement', err);
+      },
+    });
+  }
+
 
 
 

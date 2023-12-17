@@ -72,12 +72,30 @@
 
 
           <div class="mb-2">
+            <label for="theme" class="form-label">Thème</label>
+            <input type="text" class="form-control" name="themeSearch" [(ngModel)]="searchText" (input)="updateFilteredItems()" placeholder="Rechercher un thème" />
+            <div class="form-text">
+              Rechercher ou filtrer les thèmes de soutenances
+            </div>
+
+            <!-- Liste déroulante pour les thèmes filtrés -->
+            <select class="form-control mt-2 boxx" name="themeId" [(ngModel)]="selectedThemeId" required>
+              <option *ngFor="let theme of filteredThemes" [value]="theme.id">{{ theme.titre }}</option>
+            </select>
+            <div class="form-text">
+              Choisissez le thème de la soutenance
+            </div>
+          </div>
+
+
+
+          <!-- <div class="mb-2">
             <label for="" class="form-label">Thème</label>
             <input type="number" required="" class="form-control" name="themeId" ngModel required />
             <div class="form-text">
               Choisisser le theme de la soutenance
             </div>
-          </div>
+          </div> -->
 
           <div class="mb-2">
             <label for="" class="form-label">Fichier</label>

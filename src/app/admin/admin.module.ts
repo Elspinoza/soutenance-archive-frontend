@@ -22,6 +22,7 @@ import { AdminUploadComponent } from './admin-upload/admin-upload.component';
 import { AngularFireModule} from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -48,8 +49,7 @@ import { BrowserModule } from '@angular/platform-browser';
     ToastrModule.forRoot(),
     HttpClientModule,
     CommonModule,
-    AngularFireModule.initializeApp(environment.firebaseAdmin)
-
+    AngularFireModule.initializeApp(environment.firebaseAdmin),
 
   ],
 
