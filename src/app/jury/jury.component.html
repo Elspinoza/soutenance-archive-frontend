@@ -1,0 +1,50 @@
+
+  <h1>Liste des Jury</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>President</th>
+        <th>Directeur</th>
+        <th>Maitre de Stage</th>
+        <th>Examinateur</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let jury of listJury">
+        <td>{{ jury.id }}</td>
+        <td>{{ jury.president }}</td>
+        <td>{{ jury.directeur }}</td>
+        <td>{{ jury.maitreDeStage }}</td>
+        <td>{{ jury.examinateur }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br><br><br><br>
+
+  <h1>Formulaire d'ajout de Jury</h1>
+
+  <form #juryForm="ngForm" (ngSubmit)="onAddJury(juryForm)" method="post" >
+
+    <label for="">President: </label>
+    <input type="text" name="president" ngModel required #president="ngModel">
+    <br><br>
+
+    <label for="">Directeur :</label>
+    <input type="text" name="directeur" ngModel required #directeur="ngModel">
+    <br><br>
+
+    <label for="">Maitre de Stage: </label>
+    <input type="text" name="maitreDeStage" ngModel required #maitreDeStage="ngModel">
+    <br><br>
+
+    <label for="">Examinateur: </label>
+    <input type="text" name="examinateur" ngModel required #examinateur="ngModel">
+    <br><br>
+
+    <button type="submit">Add</button>
+
+  </form>

@@ -1,0 +1,153 @@
+<main>
+  <div class="box">
+    <div class="inner-box">
+      <div class="forms-wrap">
+        <form autocomplete="off" class="sign-in-form">
+          <div class="logo">
+            <a href="#">
+              <img src="./assets/images/logo.svg" alt="Eduland logo" />
+            </a>
+          </div>
+
+          <div class="heading">
+            <h2>Welcome Back</h2>
+            <h6>Not registred yet?</h6>
+            <a  class="toggle">Sign up</a>
+          </div>
+
+          <div class="actual-form">
+            <div class="input-wrap">
+              <input
+                type="text"
+                minlength="4"
+                class="input-field"
+                autocomplete="off"
+                name="email"
+                [(ngModel)] = "email"
+              />
+              <label>Email</label>
+            </div>
+
+            <div class="input-wrap">
+              <input
+                type="password"
+                minlength="4"
+                class="input-field"
+                autocomplete="off"
+                name="password"
+                [(ngModel)] = "password"
+              />
+              <label>Password</label>
+            </div>
+
+            <input type="button" value="Login" (click)="onLogin()" class="sign-btn" />
+
+            <p class="text">
+              Forgotten your password or you login datails? <br/>
+              <a href="admin/login"><b>Admin?</b> Signing in</a>
+            </p>
+          </div>
+        </form>
+
+<!-- 1 -->
+<!-- 2 -->
+
+
+<!-- REGISTER -->
+
+
+<!-- 2 -->
+<!-- 3 -->
+
+
+
+        <form action="index.html" autocomplete="off" class="sign-up-form">
+          <div class="logo">
+            <a href="#">
+              <img src="./assets/images/logo.svg" alt="Eduland logo" />
+            </a>
+          </div>
+
+          <div class="heading">
+            <h2>Get Started</h2>
+            <h6>Already have an account?</h6>
+            <a  class="toggle">Sign in</a>
+          </div>
+
+          <div class="actual-form">
+            <!-- <div class="input-wrap">
+              <input
+                type="text"
+                minlength="4"
+                class="input-field"
+                autocomplete="off"
+                required
+              />
+              <label>Name</label>
+            </div> -->
+
+            <div class="input-wrap">
+              <input
+                type="email"
+                class="input-field"
+                autocomplete="off"
+                required
+                name="email"
+                [(ngModel)] = "email"
+              />
+              <label>Email</label>
+            </div>
+
+            <div class="input-wrap">
+              <input
+                type="password"
+                minlength="4"
+                class="input-field"
+                autocomplete="off"
+                name="password"
+                [(ngModel)] = "password"
+              />
+              <label>Password</label>
+            </div>
+
+            <input type="button" (click)="onRegister()" value="Register" class="sign-btn" />
+
+            <p class="text">
+              By signing up, I agree to the
+              <a href="#">Terms of Services</a> and
+              <a href="#">Privacy Policy</a>
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <div class="carousel">
+        <div class="images-wrapper">
+          <img src="assets/img/image1.png" class="image img-1 show" alt="" />
+          <img src="assets/img/image2.png" class="image img-2" alt="" />
+          <img src="assets/img/image3.png" class="image img-3" alt="" />
+        </div>
+
+        <div class="text-slider">
+          <div class="text-wrap">
+            <div class="text-group">
+              <h2>Create your own courses</h2>
+              <h2>Customize as you like</h2>
+              <h2>Invite students to your class</h2>
+            </div>
+          </div>
+
+          <div class="bullets">
+            <span class="active" data-value="1"></span>
+            <span data-value="2"></span>
+            <span data-value="3"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Javascript file -->
+
+<script src="app.js"></script>

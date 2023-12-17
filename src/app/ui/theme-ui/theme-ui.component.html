@@ -1,0 +1,38 @@
+<h1>Ajouter votre thème de soutenance</h1>
+<div class="container pt-20 pb-2">
+
+  <form #themeForm="ngForm" method="post">
+
+    <div class="mb-2">
+      <label for="" class="form-label">Titre</label>
+      <input type="text" required="" class="form-control" name="titre" ngModel #titre="ngModel"  />
+      <div class="form-text">
+        Entrer le titre du thème de la soutenance.
+      </div>
+    </div>
+
+    <div class="mb-2">
+      <label for="" class="form-label">Mot cle</label>
+      <input type="text" required="" class="form-control" name="mots_cle" ngModel #mots_cle="ngModel" required />
+      <div class="form-text">
+        Entrer un mot clé de la soutenance.
+      </div>
+    </div>
+
+
+    <div class="mb-2">
+      <label for="" class="form-label">Description</label>
+      <!-- <input type="text" required="" class="form-control" name="filiere" ngModel #filiere="ngModel" required/> -->
+      <textarea required="" class="form-control" name="description" ngModel #description="ngModel" requiredcols="30" rows="10"></textarea>
+        <div class="form-text">
+        Entrer quelque description du thème.
+      </div>
+    </div>
+
+
+    <div class="modal-footer">
+          <button type="reset" class="btn1 btn-secondary2" data-bs-dismiss="modal">Annuler</button>
+          <button type="submit" (click)="onAddTheme(themeForm)" class="btn1 btn-primary">Ajouter</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,36 @@
+<h1>Liste des lieux</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nom</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let lieu of listLieu">
+      <td>{{ lieu.id }}</td>
+      <td>{{ lieu.nom }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<br>
+<br>
+
+
+<h1>Ajout de lieu</h1>
+
+<form #f="ngForm" (ngSubmit)="OnAddLieu(f)" method="post">
+
+  <label for="">Salle : </label>
+  <input type="text" name="nom" ngModel required #nom="ngModel">
+
+  <button type="submit">Add</button>
+</form>
+
+<!-- <p>First name value: {{ nom.value }}</p>
+<p>First name valid: {{ nom.valid }}</p>
+<p>Form value: {{ f.value | json }}</p>
+<p>Form valid: {{ f.valid }}</p> -->

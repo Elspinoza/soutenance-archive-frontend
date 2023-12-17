@@ -1,0 +1,90 @@
+<section>
+  <div class="container">
+    <div>
+      <h3>AJOUT D'UN THEME</h3>
+      <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">Ajouter</button>
+    </div>
+    <div class="row">
+      <div>
+        <h1 class="text-center"><b>Liste des archives de soutenances</b></h1>
+
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col" class="text-center">ID</th>
+              <th scope="col" class="text-center">TITRE</th>
+              <th scope="col" class="text-center">MOT CLES</th>
+              <th scope="col" class="text-center">DESCRIPTION</th>
+              <th scope="col" class="text-center">MODIFIER</th>
+              <th scope="col" class="text-center">SUPPRIMER</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let theme of listTheme">
+
+              <td class="text-center">{{ theme.id }}</td>
+              <td class="text-center">{{ theme.titre }}</td>
+              <td class="text-center">{{ theme.mots_cle }}</td>
+              <td class="text-center">{{ theme.description }}</td>
+              <td>
+                <button type="button" (click)="edit(theme)" class="btn1 btn-primaryUp" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button>
+              </td>
+              <td>
+                <button type="button" (click)="onDeleteTheme(theme.id)" class="btn1 btn-primaryDel">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajout {{ title | lowercase}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form #themeForm="ngForm" method="post">
+
+          <div class="mb-2">
+            <label for="" class="form-label">Titre</label>
+            <input type="text" required="" class="form-control" name="titre" ngModel #titre="ngModel"  />
+            <div class="form-text">
+              Entrer le titre du thème de la soutenance.
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label for="" class="form-label">Mot cle</label>
+            <input type="text" required="" class="form-control" name="mots_cle" ngModel #mots_cle="ngModel" required />
+            <div class="form-text">
+              Entrer un mot clé de la soutenance.
+            </div>
+          </div>
+
+
+          <div class="mb-2">
+            <label for="" class="form-label">Description</label>
+            <!-- <input type="text" required="" class="form-control" name="filiere" ngModel #filiere="ngModel" required/> -->
+            <textarea required="" class="form-control" name="description" ngModel #description="ngModel" requiredcols="30" rows="10"></textarea>
+              <div class="form-text">
+              Entrer quelque description du thème.
+            </div>
+          </div>
+
+
+
+        </form>
+      <div class="modal-footer">
+        <button type="button" class="btn1 btn-secondary2" data-bs-dismiss="modal">Fermer</button>
+        <button type="submit" (click)="onAddTheme(themeForm)" class="btn1 btn-primary">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>

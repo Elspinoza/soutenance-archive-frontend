@@ -1,0 +1,183 @@
+<section>
+  <div class="container">
+    <div>
+      <h3>AJOUT D'UN(E) {{titre | uppercase}}(E)</h3>
+      <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">Ajouter</button>
+    </div>
+    <div class="row">
+      <div>
+        <h1 class="text-center"><b>Liste des {{titre | lowercase}}s</b></h1>
+
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col" class="text-center">ID</th>
+              <th scope="col" class="text-center">NOM</th>
+              <th scope="col" class="text-center">PRENOM(S)</th>
+              <th scope="col" class="text-center">EMAIL</th>
+              <th scope="col" class="text-center">TELEPHONE</th>
+              <th scope="col" class="text-center">GRADE</th>
+              <th scope="col" class="text-center">MODIFIER</th>
+              <th scope="col" class="text-center">SUPPRIMER</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let enseignant of listEnseignant">
+
+              <td class="text-center">{{ enseignant.id }}</td>
+              <td class="text-center">{{ enseignant.nom }}</td>
+              <td class="text-center">{{ enseignant.prenom }}</td>
+              <td class="text-center">{{ enseignant.email }}</td>
+              <td class="text-center">{{ enseignant.tel }}</td>
+              <td class="text-center">{{ enseignant.grade }}</td>
+              <td>
+                <button type="button" (click)="edit(enseignant)" class="btn1 btn-primaryUp" data-bs-toggle="modal" data-bs-target="#exampleModal">Modifier</button>
+              </td>
+              <td>
+                <button type="button" (click)="onDeleteEnseignant(enseignant.id)" class="btn1 btn-primaryDel">supprimer</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal for update-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update {{ titre | lowercase}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form  #enseignantUpdateForm="ngForm" (ngSubmit)="updateEnseignant(enseignantUpdateForm)" method="post">
+
+          <div class="mb-3">
+            <label for="" class="form-label">{{titre}} ID</label>
+            <!-- <input type="text" class="form-control" name="mois" ngModel #mois="ngModel"/> -->
+            <input type="number" #id [ngModel]="enseignantToUpdate.id" name="id" ngModel class="form-control"/>
+            <div class="form-text">
+              Entrer le ID de la enseignant
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Nom</label>
+            <input type="text" #nom [ngModel]="enseignantToUpdate.nom" name="nom" ngModel class="form-control"/>
+            <div class="form-text">
+              Entrer le nom de la spécialité.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Prénom</label>
+            <input type="text" #prenom [ngModel]="enseignantToUpdate.prenom" name="prenom" ngModel class="form-control"/>
+            <div class="form-text">
+              Entrer le prenom de l'enseignant.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Email</label>
+            <input type="email" #email [ngModel]="enseignantToUpdate.email" name="email" ngModel class="form-control"/>
+            <div class="form-text">
+              Entrer l'email de l'enseignant.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Téléphone</label>
+            <input type="tel" #tel [ngModel]="enseignantToUpdate.tel" name="tel" ngModel class="form-control"/>
+            <div class="form-text">
+              Entrer le numéro de Téléphone de l'enseignant.
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Grade</label>
+            <input type="text" #grade [ngModel]="enseignantToUpdate.grade" name="grade" ngModel class="form-control"/>
+            <div class="form-text">
+              Entrer le niveau du grade de l'enseignant.
+            </div>
+          </div>
+
+          <button type="submit"  data-bs-dismiss="modal" class="btn1 btn-primary">Update</button>
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn1 btn-secondary2" data-bs-dismiss="modal">Close</button>
+        <button type="submit" (click)="updateVague()" class="btn1 btn-primary">Update</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal for add-->
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajout {{ titre | lowercase}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form
+          #enseignantForm="ngForm"
+          method="post"
+        >
+
+          <div class="mb-2">
+            <label for="" class="form-label">Nom</label>
+            <input type="text" class="form-control" name="nom" ngModel #nom="ngModel"  />
+            <div class="form-text">
+              Entrer le nom de la spécialité.
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label for="" class="form-label">Prénom</label>
+            <input type="text" class="form-control" name="prenom" ngModel #prenom="ngModel"  />
+            <div class="form-text">
+              Entrer le prenom de l'enseignant.
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label for="" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" ngModel #email="ngModel"  />
+            <div class="form-text">
+              Entrer l'email de l'enseignant.
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label for="" class="form-label">Téléphone</label>
+            <input type="tel" class="form-control" name="tel" ngModel #tel="ngModel"  />
+            <div class="form-text">
+              Entrer le numéro de Téléphone de l'enseignant.
+            </div>
+          </div>
+
+          <div class="mb-2">
+            <label for="" class="form-label">Grade</label>
+            <input type="text" class="form-control" name="grade" ngModel #grade="ngModel"  />
+            <div class="form-text">
+              Entrer le niveau du grade de l'enseignant.
+            </div>
+          </div>
+
+
+        </form>
+      <div class="modal-footer">
+        <button type="button" class="btn1 btn-secondary2" data-bs-dismiss="modal">Fermer</button>
+        <button type="submit" (click)="onAddEnseignant(enseignantForm)" class="btn1 btn-primary">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+

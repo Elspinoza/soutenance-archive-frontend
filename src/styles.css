@@ -1,0 +1,292 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+/* -----------------------------------*\
+ * #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+  /**
+   * colors
+   */
+
+
+
+   --white-color: #fff;
+   --blue-color: #4070f4;
+   --grey-color: #707070;
+   --grey-color-light: #aaa;
+
+
+  --rich-black-fogra-29: hsl(240, 13%, 8%);
+  --silver-chalice: hsl(0, 0%, 70%);
+  --floral-white: hsl(38, 100%, 98%);
+  --raisin-black: hsl(240, 8%, 18%);
+  --sonic-silver: hsl(240, 3%, 45%);
+  --mango-tango: hsl(20, 100%, 64%);
+  --orange-web: hsl(39, 100%, 50%);
+  --cultured: hsl(210, 17%, 98%);
+  --mantis: hsl(118, 41%, 62%);
+  --gambog: hsl(39, 100%, 45%);
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  --onyx: hsl(0, 0%, 23%);
+  --color-danger: #ff7782;
+  --color-success: #41f1b6;
+
+
+  --gradient: linear-gradient(
+    90deg,
+    hsl(38, 100%, 98%) 21.32%,
+    hsl(144, 45%, 98%) 130%
+  );
+
+  /**
+   * typography
+   */
+
+  --ff-poppins: "Poppins", sans-serif;
+  --ff-rubik: "Rubik", sans-serif;
+  --dm-sans: "DM Sans", sans-serif;
+
+  --fs-1: 30px;
+  --fs-2: 28px;
+  --fs-3: 24px;
+  --fs-4: 20px;
+  --fs-5: 18px;
+
+  --fw-500: 500;
+  --fw-700: 700;
+
+  /**
+   * transition
+   */
+
+  --transition: 0.2s ease-in-out;
+
+  /**
+   * spacing
+   */
+
+  --section-padding: 80px;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+img,
+span,
+button,
+ion-icon {
+  display: block;
+}
+
+button {
+  background: none;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+body {
+  background: var(--white);
+  transition: all 0.5s ease;
+
+}
+
+body.dark {
+  background-color: #333;
+}
+body.dark {
+  --white-color: #333;
+  --blue-color: #fff;
+  --grey-color: #f2f2f2;
+  --grey-color-light: #aaa;
+}
+
+
+/*-----------------------------------*\
+ * #REUSED STYLE
+\*-----------------------------------*/
+
+.container {
+  padding-inline: 15px;
+}
+
+/* ------------------ ACTION BUTTON ----------  */
+.btn1 {
+  color: var(--white);
+  font-family: var(--ff-poppins);
+  padding: 8px 18px;
+  border-radius: 15px;
+  transition: var(--transition);
+}
+
+/* ------------------------------------------- */
+.btn {
+  color: var(--white);
+  font-family: var(--ff-poppins);
+  padding: 20px 30px;
+  border-radius: 15px;
+  transition: var(--transition);
+}
+
+
+.btn-secondary {
+  background: var(--rich-black-fogra-29);
+  box-shadow: inset 0 -10px 20px hsl(240, 8%, 37%);
+}
+
+.btn-secondary:is(:hover, :focus) {
+  background: var(--gambog);
+  box-shadow: 5px 10px 30px hsla(39, 100%, 50%, 0.3);
+}
+
+.btn-secondary2 {
+  background: var(--rich-black-fogra-29);
+  box-shadow: inset 0 -10px 20px hsl(240, 8%, 37%);
+}
+
+.btn-secondary2:is(:hover, :focus) {
+  background: var(--rich-black-fogra-29);
+  box-shadow: 5px 10px 30px hsla(39, 100%, 50%, 0.3);
+}
+
+.btn-primary {
+  background: var(--orange-web);
+  box-shadow: 5px 10px 30px hsla(39, 100%, 50%, 0.3);
+}
+
+.btn-primary:is(:hover, :focus) {
+  background: var(--gambog);
+  transform: translateY(-3px);
+}
+
+/* ------------ DELETE BUTTON --------  */
+
+.btn-primaryDel {
+  background: var(--color-danger);
+  /* box-shadow: 5px 10px 30px hsla(0, 100%, 50%, 0.3); */
+}
+
+.btn-primaryDel:is(:hover, :focus) {
+  /* background: var(--gambog); */
+  transform: translateY(-3px);
+}
+
+/* --------------------------------------- */
+
+
+/* --------------UPDATE BUTTON ------------ */
+.btn-primaryUp {
+  background: var(--color-success);
+  /* box-shadow: 5px 10px 30px hsla(103, 100%, 50%, 0.3); */
+}
+
+.btn-primaryUp:is(:hover, :focus) {
+  /* background: var(--gambog); */
+  transform: translateY(-3px);
+}
+
+/* ---------------------------------------- */
+
+.h1,
+.h2,
+.h3 {
+  font-family: var(--ff-poppins);
+  color: var(--rich-black-fogra-29);
+}
+
+.h1 {
+  font-size: var(--fs-1);
+  line-height: 1.4;
+  font-weight: var(--fw-700);
+}
+
+.h2 {
+  font-size: var(--fs-1);
+  line-height: 1.6;
+}
+
+.h3 {
+  color: var(--onyx);
+  font-size: var(--fs-3);
+  line-height: 1.3;
+}
+
+.section-text,
+.card-text,
+.card-subtitle {
+  font-family: var(--ff-rubik);
+  color: var(--sonic-silver);
+  font-size: var(--fs-5);
+  line-height: 1.8;
+}
+
+.vector-line {
+  display: none;
+}
+
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+:root{
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background:#f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+
+}
+
+
+
+/* ----------------- DARK THEME VARIABLES ------------ */
+
+.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+

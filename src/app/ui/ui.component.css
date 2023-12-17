@@ -1,0 +1,20 @@
+.container {
+  margin-left: 120px;
+}
+
+.main-content {
+  margin-left: 260px;
+}
+
+main {
+  margin-top: 85px;
+  padding: 2rem 1.5rem;
+  /* background: #f1f5f9; */
+  background-color:var(--white-color);;
+  min-height: calc(100vh - 90px);
+}
+.fopen{
+  margin-left: 60px;
+  transition: all 0.5s ease;
+
+}

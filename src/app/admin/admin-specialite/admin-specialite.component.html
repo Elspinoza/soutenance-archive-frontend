@@ -1,0 +1,107 @@
+<section>
+  <div class="container">
+    <div>
+      <h3>AJOUT D'UNE {{titre | uppercase}}</h3>
+      <button type="button" class="btn1 btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">Ajouter une specialité</button>
+    </div>
+    <div class="row">
+      <div>
+        <h1 class="text-center"><b>Liste des specialité</b></h1>
+
+        <table class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th scope="col" class="text-center">ID</th>
+              <th scope="col" class="text-center">SPECIALITE</th>
+              <th scope="col" class="text-center">MODIFIER</th>
+              <th scope="col" class="text-center">SUPPRIMER</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let specialite of listSpecialite">
+
+              <td class="text-center">{{ specialite.id }}</td>
+              <td class="text-center">{{ specialite.intitule }}</td>
+              <td>
+                <button type="button" (click)="edit(specialite)" class="btn1 btn-primaryUp" data-bs-toggle="modal" data-bs-target="#exampleModal">Modifier</button>
+              </td>
+              <td>
+                <button type="button" (click)="onDeleteSpecialite(specialite.id)" class="btn1 btn-primaryDel">supprimer</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal for update-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update {{ titre | lowercase}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form  #specialiteUpdateForm="ngForm" (ngSubmit)="updateSpecialite(specialiteUpdateForm)" method="post">
+          <div class="mb-3">
+            <label for="" class="form-label">{{titre}} ID</label>
+            <!-- <input type="text" class="form-control" name="mois" ngModel #mois="ngModel"/> -->
+            <input type="number" #id [ngModel]="specialiteToUpdate.id" name="id" ngModel class="form-control"/>
+            <div class="form-text">
+              Entrer le ID de la specialite
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="" class="form-label">Nom</label>
+            <input type="text" #intitule [ngModel]="specialiteToUpdate.intitule" name="intitule" ngModel class="form-control"/>
+            <div class="form-text">
+              Entrer le nom de la spécialité.
+            </div>
+          </div>
+
+          <button type="submit"  data-bs-dismiss="modal" class="btn1 btn-primary">Update</button>
+        </form>
+      </div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn1 btn-secondary2" data-bs-dismiss="modal">Close</button>
+        <button type="submit" (click)="updateVague()" class="btn1 btn-primary">Update</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Ajout {{ titre | lowercase}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form
+          #specialiteForm="ngForm"
+          method="post"
+        >
+          <div class="mb-2">
+            <label for="" class="form-label">Nom</label>
+            <input type="text" required="" class="form-control" name="intitule" ngModel #intitule="ngModel"  />
+            <div class="form-text">
+              Entrer le nom de la specialite.
+            </div>
+          </div>
+
+        </form>
+      <div class="modal-footer">
+        <button type="button" class="btn1 btn-secondary2" data-bs-dismiss="modal">Fermer</button>
+        <button type="submit" (click)="onAddSpecialite(specialiteForm)" class="btn1 btn-primary">Ajouter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
