@@ -26,7 +26,7 @@
               <td class="text-center">{{ archive.id }}</td>
               <td class="text-center">{{ archive.parcours }}</td>
               <td class="text-center">{{ archive.filiere }}</td>
-              <td class="text-center">{{ archive.themeId }}</td>
+              <td class="text-center">{{ archive.themeId.titre }}</td>
               <td class="text-center"> <a href="{{ archive.fileLink }}">{{ archive.fileLink }}</a> </td>
               <td>
                 <button type="button" (click)="edit(archive)" class="btn1 btn-primaryUp" data-bs-toggle="modal" data-bs-target="#exampleModal">Update</button>

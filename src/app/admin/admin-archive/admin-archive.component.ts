@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class AdminArchiveComponent implements OnInit{
 
-  tiltle!: 'Archive';
+  title!: 'Archive';
   titre: string = 'Archive';
   listArchive: any[] = [];
   // listArchive: Archive[] = [];

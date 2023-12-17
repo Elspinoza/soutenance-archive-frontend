@@ -1,4 +1,3 @@
-import { Administrateur } from "./administrateur.model";
 import { Theme } from "./theme.model";
 
 export class Archive {
@@ -7,6 +6,6 @@ export class Archive {
   filiere!: string;
   fileLink!: string;
   administrateurId!: number;
-  themeId!: Theme;
   file!: FormData
+  themeId!: Theme;
 }

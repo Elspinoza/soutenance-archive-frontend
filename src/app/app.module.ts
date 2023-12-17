@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { TwoFactorAuthComponent } from './two-factor-auth/two-factor-auth.component';
 import { HomeComponent } from './home/home.component';
 import { SpecialiteComponent } from './specialite/specialite.component';
-import { ArchiveComponent } from './archive/archive.component';
+// import { ArchiveComponent } from './archive/archive.component';
 import { JuryComponent } from './jury/jury.component';
 import { PlateformeComponent } from './plateforme/plateforme.component';
 import { ThemeComponent } from './theme/theme.component';
@@ -40,7 +40,7 @@ import { LoginAdComponent } from './login-ad/login-ad.component';
     HomeComponent,
     SpecialiteComponent,
     // LieuComponent,
-    ArchiveComponent,
+    // ArchiveComponent,
     // EnseignantComponent,
     JuryComponent,
     PlateformeComponent,
